@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<model name="latch:latchmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<description>Latch Model</description>
+	<author>Ivan Arroyo Escobar</author>
+	<version>1.0</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="http://www.alfresco.org/model/latch/1.0" prefix="latch" />
+	</namespaces>
+
+	<aspects>
+		<aspect name="latch:latcheable">
+			<title>Latch aspect</title>
+			<properties>
+				<property name="latch:accountID">
+					<title>AccountID</title>
+					<type>d:text</type>
+				</property>
+			</properties>
+		</aspect>
+	</aspects>
+</model>

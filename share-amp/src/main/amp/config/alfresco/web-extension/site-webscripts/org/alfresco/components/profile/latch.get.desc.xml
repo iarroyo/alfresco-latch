@@ -1,0 +1,5 @@
+<webscript>
+  <shortname>Latch</shortname>
+  <description>Latch pair/unpair</description>
+  <url>/components/profile/latch</url>
+</webscript>
