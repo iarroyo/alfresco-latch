@@ -6,7 +6,7 @@ This is a beta latch plugin for Alfresco.
 ##PREREQUISITES 
  * Alfresco (Tested with Alfresco 5.0.a)
 
- * To get the **"Application ID"** and **"Secret"**, (fundamental values for integrating Latch in any application), it’s necessary to register a developer account in [Latch's website](https://latch.elevenpaths.com"https://latch.elevenpaths.com"). On the upper right side, click on **"Developer area"**.
+ * To get the **"Application ID"** and **"Secret"**, (fundamental values for integrating Latch in any application), it’s necessary to register a developer account in [Latch's website](https://latch.elevenpaths.com). On the upper right side, click on **"Developer area"**.
  
  
  
@@ -32,7 +32,7 @@ This proyect is based on Alfresco Maven SDK so to build the project you only nee
 * You can use both wars directly or install the latch-repo.amp and latch-share.amp separately.
 
 ##WARNING
-This project use the latch java SDK as dependency so you cannot build the project correctly if you don´t include this dependency inside your .m2 repository.
+This project use the **latch java SDK** as dependency so you cannot build the project correctly if you don´t include this dependency inside your .m2 repository.
 To do it, download the latch-java-sdk project (https://github.com/ElevenPaths/latch-sdk-java) and install it by mvn install.
 
 
