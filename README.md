@@ -74,5 +74,5 @@ The user needs the Latch application installed on the phone, and follow these st
 	
 
 ##DOWNLOADS
-* [Latch Alfresco Repository AMP](https://mega.co.nz/#!5N5AnCaC!IvjDwfzGzbMKipergdq5bjEZFOS5oH1IG_X-UynJSl4)
-* [Latch Alfresco Share AMP](https://mega.co.nz/#!RMwDgQpT!XplMNbqOaPPoxPas0omvGQPzIxL1rt2a9v9SAznSZZM) 
+* [Latch Alfresco Repository AMP](https://mega.co.nz/#!RRIh2QpJ!4Ko2q9nEh4AqGqfDTCXWosj8M8WwsHwdzC0jX3ePGkY)
+* [Latch Alfresco Share AMP](https://mega.co.nz/#!Ac5D2K4C!Y3WOveYMHUsqnuSt_ykeXM9_XNGvtjSyDGp6J0gxOwk) 
