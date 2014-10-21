@@ -69,3 +69,8 @@ The user needs the Latch application installed on the phone, and follow these st
 - For more information about how to use Latch and testing more free features, please refer to the user guide in Spanish and English:
 	1. [English version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_EN.pdf)
 	1. [Spanish version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_ES.pdf)
+	
+
+##DOWNLOADS
+* [Latch Alfresco Repository AMP](https://mega.co.nz/#!JFpQWDZJ!fRSSBfl93LJ-6UIZFZ9BCjj38CpsZC4_21O5KBPqs_c)
+* [Latch Alfresco Share AMP](https://mega.co.nz/#!JRhWVKbA!6s44CQJhHFW75RvMtHloQoQurQ0Dlp0YZnPW5O5Ed80) 
