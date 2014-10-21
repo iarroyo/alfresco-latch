@@ -4,7 +4,9 @@ This is a beta latch plugin for Alfresco.
 
 
 ##PREREQUISITES 
- * Alfresco (Tested with Alfresco 5.0.a)
+ * Alfresco 
+ 	* Tested with Alfresco Community version [5.0.a]
+	* Tested with Alfresco Enterprise version [4.2.0.3, 4.2.3.3]
 
  * To get the **"Application ID"** and **"Secret"**, (fundamental values for integrating Latch in any application), it’s necessary to register a developer account in [Latch's website](https://latch.elevenpaths.com). On the upper right side, click on **"Developer area"**.
  
@@ -72,5 +74,5 @@ The user needs the Latch application installed on the phone, and follow these st
 	
 
 ##DOWNLOADS
-* [Latch Alfresco Repository AMP](https://mega.co.nz/#!JFpQWDZJ!fRSSBfl93LJ-6UIZFZ9BCjj38CpsZC4_21O5KBPqs_c)
-* [Latch Alfresco Share AMP](https://mega.co.nz/#!JRhWVKbA!6s44CQJhHFW75RvMtHloQoQurQ0Dlp0YZnPW5O5Ed80) 
+* [Latch Alfresco Repository AMP](https://mega.co.nz/#!5N5AnCaC!IvjDwfzGzbMKipergdq5bjEZFOS5oH1IG_X-UynJSl4)
+* [Latch Alfresco Share AMP](https://mega.co.nz/#!RMwDgQpT!XplMNbqOaPPoxPas0omvGQPzIxL1rt2a9v9SAznSZZM) 

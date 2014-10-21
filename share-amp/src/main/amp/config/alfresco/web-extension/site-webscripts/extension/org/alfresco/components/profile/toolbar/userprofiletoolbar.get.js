@@ -9,5 +9,8 @@ function addLink(id, href, msgId, msgArgs)
    });
 }
 
-//Add latch link
-addLink("latch-link", "latch", "link.latch");
+if (model.activeUserProfile)
+{
+	//Add latch link
+	addLink("latch-link", "latch", "link.latch");
+}
