@@ -20,6 +20,7 @@
 	<bean id="abstract.latch.settings" class="org.alfresco.latch.webscript.AbstractSettingsLatch"
 		parent="webscript" abstract="true">
 		<property name="attributeService" ref="attributeService" />
+		<property name="authorityService" ref="authorityService" />
 	</bean>
 	
 	<bean id="webscript.org.alfresco.latch.settings.get" class="org.alfresco.latch.webscript.GetSettingsLatch"

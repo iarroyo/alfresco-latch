@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.mail.MethodNotSupportedException;
 
 import org.alfresco.service.cmr.attributes.AttributeService;
+import org.alfresco.service.cmr.security.AuthorityService;
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +35,7 @@ public class AbstractSettingsLatch extends AbstractWebScript {
 	protected static final String MESSAGE="message";
 
 	protected AttributeService attributeService;
+	protected AuthorityService authorityService;
 
 	/*
 	 * (non-Javadoc)
@@ -58,10 +60,6 @@ public class AbstractSettingsLatch extends AbstractWebScript {
 		throw new MethodNotSupportedException("This method should be implemented");
 	}
 
-	public void setAttributeService(AttributeService attributeService) {
-		this.attributeService = attributeService;
-	}
-	
 	/**
 	 * @param json
 	 * @return
@@ -74,6 +72,14 @@ public class AbstractSettingsLatch extends AbstractWebScript {
 		String secret= json.has(PARAM_SECRET)?json.getString(PARAM_SECRET):null;
 		
 		return !(enabled==null || StringUtils.isEmpty(appID) || StringUtils.isEmpty(secret));
+	}
+	
+	public void setAttributeService(AttributeService attributeService) {
+		this.attributeService = attributeService;
+	}
+	
+	public void setAuthorityService(AuthorityService authorityService){
+		this.authorityService=authorityService;
 	}
 
 }

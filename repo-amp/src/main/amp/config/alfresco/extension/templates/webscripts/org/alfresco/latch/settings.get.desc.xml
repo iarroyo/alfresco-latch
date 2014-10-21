@@ -3,5 +3,5 @@
    <description>Latch Settings</description>
    <url>/api/latch/settings</url>
    <format default="json">argument</format>
-   <authentication>admin</authentication>
+   <authentication>user</authentication>
 </webscript>

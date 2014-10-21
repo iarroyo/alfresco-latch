@@ -8,6 +8,7 @@ import java.security.InvalidParameterException;
 import java.util.Map;
 
 import org.alfresco.latch.service.LatchService;
+import org.alfresco.repo.security.authentication.AuthenticationUtil;
 import org.alfresco.service.cmr.attributes.AttributeService;
 import org.antlr.grammar.v3.ANTLRParser.attrScope_return;
 import org.json.JSONException;
@@ -20,6 +21,7 @@ import org.springframework.extensions.webscripts.WebScriptRequest;
 import org.springframework.extensions.webscripts.WebScriptResponse;
 
 import com.elevenpaths.latch.LatchErrorException;
+import com.google.gson.JsonObject;
 
 /**
  * @author iarroyo
@@ -40,17 +42,22 @@ public class GetSettingsLatch extends AbstractSettingsLatch {
 	public void executeImpl(WebScriptRequest req, WebScriptResponse res)
 			throws IOException, JSONException {
 
-		JSONObject response = null;
+		JSONObject response = new JSONObject();
+		JSONObject settings=null;
 		
 		if (attributeService.exists(LATCH, SETTINGS)) {
-			response = new JSONObject((String)attributeService.getAttribute(LATCH,
+			settings = new JSONObject((String)attributeService.getAttribute(LATCH,
 					SETTINGS));
+			if(authorityService.isAdminAuthority(AuthenticationUtil.getFullyAuthenticatedUser())){
+				response=settings;
+			}else{
+				response.put(PARAM_ENABLED, settings.has(PARAM_ENABLED)?settings.getBoolean(PARAM_ENABLED):Boolean.FALSE);
+			}
 		}else{
-			response=new JSONObject();
 			response.put(PARAM_ENABLED, Boolean.FALSE);
 		}
 		
-		response.put(CONFIGURED,isConfigured(response));
+		response.put(CONFIGURED,isConfigured(settings));
 
 		res.getWriter().write(response.toString());
 
