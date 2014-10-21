@@ -43,7 +43,7 @@ public class GetSettingsLatch extends AbstractSettingsLatch {
 			throws IOException, JSONException {
 
 		JSONObject response = new JSONObject();
-		JSONObject settings=null;
+		JSONObject settings=new JSONObject();
 		
 		if (attributeService.exists(LATCH, SETTINGS)) {
 			settings = new JSONObject((String)attributeService.getAttribute(LATCH,

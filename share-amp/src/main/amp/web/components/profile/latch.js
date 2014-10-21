@@ -59,8 +59,6 @@
             });
          
          
-         this.widgets.cancel = Alfresco.util.createYUIButton(this, "button-cancel", this.onCancel);
-         
          // Form definition
          var form = new Alfresco.forms.Form(this.id + "-form");
          form.setSubmitElements(this.widgets.button);
@@ -113,7 +111,7 @@
                {
                   text: Alfresco.util.message("message.success", this.name)
                });
-               this.navigateToProfile();
+               this.navigateToLatch();
             }
             else if (response.json.message)
             {
@@ -151,26 +149,14 @@
       },
       
       /**
-       * Cancel Changes button click handler
-       *
-       * @method onCancel
-       * @param e {object} DomEvent
-       * @param p_obj {object} Object passed back from addListener method
-       */
-      onCancel: function UP_onCancel(e, p_obj)
-      {
-         this.navigateToProfile();
-      },
-      
-      /**
-       * Perform URL navigation back to user profile main page
+       * Perform URL navigation back to user latch page
        * 
-       * @method navigateToProfile
+       * @method navigateToLatch
        */
-      navigateToProfile: function UP_navigateToProfile()
+      navigateToLatch: function navigateToLatch()
       {
          var pageIndex = document.location.href.lastIndexOf('/');
-         document.location.href = document.location.href.substring(0, pageIndex + 1) + "profile";
+         document.location.href = document.location.href.substring(0, pageIndex + 1) + "latch";
       }
    });
 })();
