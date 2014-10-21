@@ -45,7 +45,6 @@
 		               <#else>
 		               		<button id="${el}-button-unpair" name="unpair">${msg("button.unpair")}</button>
 		               </#if>
-		               <button id="${el}-button-cancel" name="cancel">${msg("button.cancel")}</button>
 		            </div>
 		            <input type="hidden" name="operation" value="<#if !isPaired>pair<#else>unpair</#if>"/>
 		         </form>
