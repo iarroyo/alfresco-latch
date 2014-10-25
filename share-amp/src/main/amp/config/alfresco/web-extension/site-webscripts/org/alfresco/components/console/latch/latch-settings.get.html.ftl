@@ -38,7 +38,7 @@
       
       <div id="${el}-body" class="latch-settings">
       		<div class="title">${msg("label.settings")}</div>
-      		<div class="row info">${msg("label.settings.info")}.<a href="https://latch.elevenpaths.com/www/getting.html" target="_blank">${msg("label.settings")}</a></div>
+      		<div class="row info">${msg("label.settings.info")}. <a href="https://latch.elevenpaths.com/www/getting.html" target="_blank">${msg("label.settings")}</a></div>
       	    <form id="${el}-form" action="${url.context}/service/components/console/latch" method="post">
                <div class="row">
                   <div class="label">${msg("label.active")}:</div>
