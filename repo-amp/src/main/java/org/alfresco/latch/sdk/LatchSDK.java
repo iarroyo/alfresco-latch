@@ -8,8 +8,9 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Map;
 
+import org.alfresco.latch.config.LatchConfig;
 import org.alfresco.latch.exception.LatchException;
-import org.alfresco.latch.ssl.EasySSLSocketFactory;
+import org.alfresco.latch.util.HttpClientFactory;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -19,10 +20,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 
 import com.elevenpaths.latch.Latch;
 import com.google.gson.Gson;
@@ -37,12 +34,19 @@ import com.google.gson.JsonElement;
  */
 public class LatchSDK extends Latch {
 
+	private HttpClient httpClient;
+	
+	public void setHttpClient(HttpClient httpClient){
+		this.httpClient=httpClient;
+	}
+
 	/**
 	 * @param appId
 	 * @param secretKey
 	 */
-	public LatchSDK(String appId, String secretKey) {
-		super(appId, secretKey);
+	public LatchSDK(LatchConfig latchConfig) {
+		super(latchConfig.getAppID(), latchConfig.getSecret());
+		setHttpClient(HttpClientFactory.build(latchConfig.getKesyStore(), latchConfig.getKeyStorePass()));
 	}
 
 	@Override
@@ -51,10 +55,6 @@ public class LatchSDK extends Latch {
 		JsonElement responseJSON = null;
 		try {
 
-			SchemeRegistry schemeRegistry = new SchemeRegistry();
-	        schemeRegistry.register(new Scheme("https",443,new EasySSLSocketFactory()));
-
-	        DefaultHttpClient httpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(schemeRegistry));
 			HttpGet httpget = new HttpGet(URL);
 
 			// Add headers

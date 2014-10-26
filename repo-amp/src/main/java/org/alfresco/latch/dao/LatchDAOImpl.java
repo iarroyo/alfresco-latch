@@ -83,11 +83,8 @@ public class LatchDAOImpl implements LatchDAO {
 	private void performPairing(LatchConfig latchConfig, String token,
 			NodeRef userRef) throws LatchErrorException {
 
-		String appID = latchConfig.getAppID();
-		String secret = latchConfig.getSecret();
-
-		if (StringUtils.isNotEmpty(appID) && StringUtils.isNotEmpty(secret)) {
-			Latch latch = new LatchSDK(appID, secret);
+		if (latchConfig.isAvailable()) {
+			Latch latch = new LatchSDK(latchConfig);
 			LatchResponse latchResponse = latch.pair(token);
 			processPairingResponse(latchResponse, userRef);
 		}
@@ -141,8 +138,8 @@ public class LatchDAOImpl implements LatchDAO {
 			String appID= latchConfig.getAppID();
 			String secret= latchConfig.getSecret();
 			
-			if(StringUtils.isNotEmpty(appID) && StringUtils.isNotEmpty(secret)){
-				Latch latch= new LatchSDK(appID, secret);
+			if(latchConfig.isAvailable()){
+				Latch latch= new LatchSDK(latchConfig);
 				LatchResponse latchResponse=latch.unpair(accountID);
 				Error error =latchResponse.getError();
 				if(error!=null){
