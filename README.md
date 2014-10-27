@@ -4,9 +4,9 @@ This is a beta latch plugin for Alfresco.
 
 
 ##PREREQUISITES 
- * Alfresco 
- 	* Tested with Alfresco Community version [5.0.a]
-	* Tested with Alfresco Enterprise version [4.2.0.3, 4.2.3.3]
+ * Alfresco 4.2 or higher
+    * Tested with Alfresco Community version [5.0.a]
+    * Tested with Alfresco Enterprise version [4.2.0.3, 4.2.3.3]
 
  * To get the **"Application ID"** and **"Secret"**, (fundamental values for integrating Latch in any application), it’s necessary to register a developer account in [Latch's website](https://latch.elevenpaths.com). On the upper right side, click on **"Developer area"**.
  
@@ -20,25 +20,54 @@ This is a beta latch plugin for Alfresco.
 * From the side menu in developers area, the user can access the **"Documentation & SDKs"** section. Inside it, there is a **"SDKs and Plugins"** menu. Links to different SDKs in different programming languages and plugins developed so far, are shown.
 
 
-##BUILD AND INSTALL LATCH MODULE FOR ALFRESCO
+##BUILD LATCH MODULE FOR ALFRESCO
 This proyect is based on Alfresco Maven SDK so to build the project you only need to follow these steps:
 
 * Go to main folder /alfresco-latch, execute the mvn clean package.
 
 * After the package we will have the next output:
-	* /alfresco-latch/repo/target/repo.war, which is the alfresco.war
-	* /alfresco-latch/share/target/share.war
-	* /alfresco-latch/repo-amp/target/latch-repo.amp, which is the amp module for alfresco repository
-	* /alfresco-latch/share-amp/target/latch-share.amp, which is the amp module for alfresco share
+    * /alfresco-latch/repo-amp/target/latch-repo.amp, which is the amp module for alfresco repository
+    * /alfresco-latch/share-amp/target/latch-share.amp, which is the amp module for alfresco share
 	
-* You can use both wars directly or install the latch-repo.amp and latch-share.amp separately.
 
-##WARNING
+
+###WARNING
+
 This project use the **latch java SDK** as dependency so you cannot build the project correctly if you don´t include this dependency inside your .m2 repository.
 To do it, download the latch-java-sdk project (https://github.com/ElevenPaths/latch-sdk-java) and install it by mvn install.
 
 
+##GUIDE TO INSTALL LATCH MODULE FOR ALFRESCO
 
+This guide try to explain how install the latch customizations in Alfresco.
+
+**1.** You can download the amps from the "**Downloads**" section at the end of the page or build them following the instruction of the section "**Build Latch Module for Alfresco**"
+
+**2.** Place the amps in their respective directories
+
+   * Latch Alfresco Repository AMP (latch-repo.amp) ---> <alfresco_root_directory\>/amps 
+   * Latch Alfresco Share AMP (latch-share.amp) ---> <alfresco_root_directory\>/amps_share
+
+**3.** There are two options to install the amps:
+
+**3.1** The script called **apply_amps.sh**.
+
+Install all AMP files that are located in the amps and amps_share directories.
+And remove the existing previous deployed wars.
+    
+**3.2** The jar **alfresco-mmt.jar** 
+         
+Example: java -jar Alfresco/bin/alfresco-mmt.jar install <ruta amp> <ruta alfresco> -verbose
+   
+- Install the amp to Alfresco:  
+          java -jar <alfresco_root_directory\>/bin/alfresco-mmt.jar install <alfresco_root_directory\>/amps/latch-repo.amp <alfresco_root_directory\>/tomcat/webapps/alfresco.war -verbose
+
+- Install the amp to Share:  
+java -jar <alfresco_root_directory\>/bin/alfresco-mmt.jar install <alfresco_root_directory\>/amps_share/latch-share.amp <alfresco_root_directory\>/tomcat/webapps/share.war -verbose
+ 
+In this case you need to remove the folders alfresco and share placed in **<alfresco_root_directory\>/tomcat/webapps**
+
+**4.** After the installation check that really the alfresco and share folders have been removed in the case of using the script (apply_amps.sh) 
 
 ##USE OF LATCH MODULE FOR THE USERS
 **Latch does not affect in any case or in any way the usual operations with an account. It just allows or denies actions over it, acting as an independent extra layer of security that, once removed or without effect, will have no effect over the accounts, that will remain with its original state.**
@@ -72,7 +101,15 @@ The user needs the Latch application installed on the phone, and follow these st
 	1. [English version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_EN.pdf)
 	1. [Spanish version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_ES.pdf)
 	
+##ADITIONAL INFORMATION
+The latch website use a certified issued by **StartCom Ltd.**. This certificate is not included in the java keystore bundle by default, so we have two options to validate the certified correctly. The second option is used by default.
+
+1. Import it in our cacerts trustore.  
+**keytool -import -trustcacerts -file /path/to/ca/ca.pem -alias CA_ALIAS -keystore $JAVA_HOME/jre/lib/security/cacerts**
+
+2. Use a custom keystore already containing the needed certificate in order to be used by the http client. A Java keystore only containing the Latch certificate is already provided with the Alfresco Latch plugin.
+
 
 ##DOWNLOADS
-* [Latch Alfresco Repository AMP](https://mega.co.nz/#!RRIh2QpJ!4Ko2q9nEh4AqGqfDTCXWosj8M8WwsHwdzC0jX3ePGkY)
-* [Latch Alfresco Share AMP](https://mega.co.nz/#!Ac5D2K4C!Y3WOveYMHUsqnuSt_ykeXM9_XNGvtjSyDGp6J0gxOwk) 
+* [Latch Alfresco Repository AMP](https://mega.co.nz/#!JFZ1kRya!KtYkpb9kiKR8NqlqweXY1SsGGqOCb8x4hoNOOxv1jFA)
+* [Latch Alfresco Share AMP](https://mega.co.nz/#!JNgBkA5b!YBDG2YG_hUe6ZhhJzFeG6BRI7C8cPFYpMVCcdgHw4_I) 
