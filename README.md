@@ -28,7 +28,7 @@ This proyect is based on Alfresco Maven SDK so to build the project you only nee
 * After the package we will have the next output:
     * /alfresco-latch/repo-amp/target/latch-repo.amp, which is the amp module for alfresco repository
     * /alfresco-latch/share-amp/target/latch-share.amp, which is the amp module for alfresco share
-	
+    
 
 
 ###WARNING
@@ -45,8 +45,8 @@ This guide try to explain how install the latch customizations in Alfresco.
 
 **2.** Place the amps in their respective directories
 
-   * Latch Alfresco Repository AMP (latch-repo.amp) ---> <alfresco_root_directory\>/amps 
-   * Latch Alfresco Share AMP (latch-share.amp) ---> <alfresco_root_directory\>/amps_share
+   * Latch Alfresco Repository AMP (latch-repo.amp) ---> &lt;alfresco_root_directory&gt;/amps 
+   * Latch Alfresco Share AMP (latch-share.amp) ---> &lt;alfresco_root_directory&gt;/amps_share
 
 **3.** There are two options to install the amps:
 
@@ -57,15 +57,15 @@ And remove the existing previous deployed wars.
     
 **3.2** The jar **alfresco-mmt.jar** 
          
-Example: java -jar Alfresco/bin/alfresco-mmt.jar install <ruta amp> <ruta alfresco> -verbose
+**Example**: java -jar  &lt;alfresco_root_directory&gt;/bin/alfresco-mmt.jar install &lt;path_amp&gt; &lt;path_war&gt; -verbose
    
 - Install the amp to Alfresco:  
-          java -jar <alfresco_root_directory\>/bin/alfresco-mmt.jar install <alfresco_root_directory\>/amps/latch-repo.amp <alfresco_root_directory\>/tomcat/webapps/alfresco.war -verbose
+          java -jar &lt;alfresco_root_directory&gt;/bin/alfresco-mmt.jar install &lt;alfresco_root_directory&gt;/amps/latch-repo.amp &lt;alfresco_root_directory&gt;/tomcat/webapps/alfresco.war -verbose
 
 - Install the amp to Share:  
-java -jar <alfresco_root_directory\>/bin/alfresco-mmt.jar install <alfresco_root_directory\>/amps_share/latch-share.amp <alfresco_root_directory\>/tomcat/webapps/share.war -verbose
+java -jar &lt;alfresco_root_directory&gt;/bin/alfresco-mmt.jar install &lt;alfresco_root_directory&gt;/amps_share/latch-share.amp &lt;alfresco_root_directory&gt;/tomcat/webapps/share.war -verbose
  
-In this case you need to remove the folders alfresco and share placed in **<alfresco_root_directory\>/tomcat/webapps**
+In this case you need to remove the folders alfresco and share placed in **&lt;alfresco_root_directory&gt;/tomcat/webapps**
 
 **4.** After the installation check that really the alfresco and share folders have been removed in the case of using the script (apply_amps.sh) 
 
