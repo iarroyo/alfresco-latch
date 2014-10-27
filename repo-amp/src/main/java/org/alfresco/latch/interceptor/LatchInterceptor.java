@@ -73,14 +73,15 @@ public class LatchInterceptor implements MethodInterceptor {
 			if(error!=null && (error.getCode()==HttpStatus.SC_CREATED || error.getCode()==HttpStatus.SC_PROCESSING)){
 				// If the account is externally unpaired
 				latchService.externallyUnpairedAccount(userName);
-			}
-			
-			//latch status ON
-			if(data!=null && latchService.isLatchON(latchResponse)){
-				//TODO Second authentication factor
 			}else{
-				//AuthenticationCredentialsNotFoundException, not give any clue.
-				throw new AuthenticationDisallowedException("Latch has blocked the authenticaton");
+			
+				//latch status ON
+				if(data!=null && latchService.isLatchON(latchResponse)){
+					//TODO Second authentication factor
+				}else{
+					//AuthenticationCredentialsNotFoundException
+					throw new AuthenticationDisallowedException("Latch has blocked the authenticaton");
+				}
 			}
 		}
 

@@ -52,9 +52,9 @@ public class LatchServiceImpl implements LatchService {
 		String appID= this.latchConfig.getAppID();
 		String secret= this.latchConfig.getSecret();
 		
-		if(StringUtils.isNotEmpty(appID) && StringUtils.isNotEmpty(secret)){
+		if(latchConfig.isAvailable()){
 			
-			Latch latch= new LatchSDK(appID, secret); 
+			Latch latch= new LatchSDK(latchConfig); 
 			latchResponse= latch.status(accountID);
 		}
 		

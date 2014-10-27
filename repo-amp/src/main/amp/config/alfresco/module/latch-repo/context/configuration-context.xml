@@ -21,14 +21,9 @@
     
     <bean id="latchConfig" class="org.alfresco.latch.config.LatchConfig">
     	<property name="attributeService" ref="attributeService" />
-<!--     	<property name="enable"> -->
-<!--     		<value>${latch.enable}</value> -->
-<!--     	</property> -->
-<!-- 		<property name="appID"> -->
-<!-- 			<value>${latch.config.appID}</value> -->
-<!-- 		</property> -->
-<!-- 		<property name="secret"> -->
-<!-- 			<value>${latch.config.secret}</value> -->
-<!-- 		</property> -->
+    	<property name="keyStore">
+    		<value type="org.springframework.core.io.Resource">${latch.keystore.path}</value>
+    	</property>
+    	<property name="keyStorePass" value="${latch.keystore.password}" />
     </bean>
 </beans>
