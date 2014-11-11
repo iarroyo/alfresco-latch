@@ -1,0 +1,7 @@
+<webscript>
+   <shortname>Put Latch 2FA</shortname>
+   <description>Put Latch 2FA</description>
+   <url>/api/latch/twofa/temptoken</url>
+   <format default="json">argument</format>
+   <authentication>none</authentication>
+</webscript>

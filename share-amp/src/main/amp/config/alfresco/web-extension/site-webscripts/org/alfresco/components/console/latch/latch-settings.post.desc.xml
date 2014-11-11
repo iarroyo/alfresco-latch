@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>Admin Console Latch Tool POST</shortname>
+  <description>Admin Console Latch Tool POST form submission processing</description>
+  <format default="json" />
+  <url>/components/console/latch</url>
+  <authentication>user</authentication>
+</webscript>

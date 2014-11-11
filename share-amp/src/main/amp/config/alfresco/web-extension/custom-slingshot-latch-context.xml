@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+
+	<!-- Add application extension messages -->
+	<bean id="zaizi.resources"
+		class="org.springframework.extensions.surf.util.ResourceBundleBootstrapComponent">
+		<property name="resourceBundles">
+			<list>
+				<value>alfresco.web-extension.messages.latch</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Override Login Controller - get users group membership -->
+   <bean id="loginController" class="org.alfresco.web.site.servlet.LatchSlingshotLoginController">
+        <property name="cacheSeconds" value="-1" />
+        <property name="useExpiresHeader"><value>true</value></property>
+        <property name="useCacheControlHeader"><value>true</value></property>
+        <property name="userFactory" ref="user.factory"></property>
+        <property name="connectorService" ref="connector.service" />
+        <property name="remoteClient" ref="connector.remoteclient" />
+    </bean>
+	
+   
+</beans>

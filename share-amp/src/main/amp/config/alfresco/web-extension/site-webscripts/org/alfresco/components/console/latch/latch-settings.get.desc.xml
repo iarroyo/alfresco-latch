@@ -1,0 +1,6 @@
+<webscript>
+  <shortname>Admin Console Latch Tool</shortname>
+  <description>Administration Console - Latch Settings Tool</description>
+  <url>/components/console/latch</url>
+  <family>admin-console</family>
+</webscript>

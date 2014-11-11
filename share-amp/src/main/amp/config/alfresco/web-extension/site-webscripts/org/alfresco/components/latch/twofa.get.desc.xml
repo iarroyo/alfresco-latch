@@ -1,0 +1,5 @@
+<webscript>
+   <shortname>Latch twoFA</shortname>
+   <description>From latch second factor authentication</description>
+   <url>/components/latch/twofa</url>
+</webscript>

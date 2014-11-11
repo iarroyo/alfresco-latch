@@ -1,0 +1,7 @@
+<webscript>
+   <shortname>Get Latch 2FA</shortname>
+   <description>Get Latch 2FA</description>
+   <url>/api/latch/twofa/{username}</url>
+   <format default="json">argument</format>
+   <authentication>none</authentication>
+</webscript>

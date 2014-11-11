@@ -1,0 +1,7 @@
+<webscript>
+   <shortname>Get User Ticket</shortname>
+   <description>Get User Ticket</description>
+   <url>/api/latch/ticket/{username}</url>
+   <format default="json">argument</format>
+   <authentication>none</authentication>
+</webscript>

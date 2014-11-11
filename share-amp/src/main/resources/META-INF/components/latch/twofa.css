@@ -1,0 +1,19 @@
+.latch-logo {
+    background: url("images/latch.png") no-repeat scroll 0 0 transparent;
+    height: 70px;
+    width: 360px;
+}
+
+/*
+ * Override button colour for enterprise
+ */
+ 
+.form-fields.latch .form-field > span.yui-button {
+  border-color: #0098A7;
+  margin-top: 4px;
+}
+
+.form-fields.latch .form-field > span.yui-button > .first-child {
+  background-color: #C6F0F0;
+  border-color: #0098A7;
+}

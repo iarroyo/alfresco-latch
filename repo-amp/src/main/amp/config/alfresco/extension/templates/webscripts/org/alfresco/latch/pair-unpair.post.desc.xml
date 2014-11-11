@@ -1,0 +1,7 @@
+<webscript>
+   <shortname>Latch pairing</shortname>
+   <description>Latch pairing</description>
+   <url>/api/latch/{operation}</url>
+   <format default="json">argument</format>
+   <authentication>user</authentication>
+</webscript>

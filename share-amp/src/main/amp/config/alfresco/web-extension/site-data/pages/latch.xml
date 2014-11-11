@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page>
+   <title>Latch Page for a User</title>
+   <title-id>page.latch.title</title-id>
+   <description>Latch section on Profile page for a User</description>
+   <description-id>page.latch.description</description-id>
+   <template-instance>latch</template-instance>
+   <authentication>user</authentication>
+</page>

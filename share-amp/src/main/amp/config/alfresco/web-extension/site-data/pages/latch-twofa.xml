@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+   <title>Latch TwoFA</title>
+   <title-id>page.latch.twofa.title</title-id>
+   <template-instance>latch-twofa</template-instance>
+   <authentication>none</authentication>
+   <components>
+
+      <!-- Login form -->
+      <component>
+         <region-id>components</region-id>
+         <url>/components/latch/twofa</url>
+         <properties>
+            <error>{error}</error>
+         </properties>
+      </component>
+
+   </components>
+</page>

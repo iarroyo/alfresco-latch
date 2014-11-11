@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>Latch POST</shortname>
+  <description>Latch pair/unpair</description>
+  <url>/components/profile/latch</url>
+  <authentication>user</authentication>
+  <format default="json" />
+</webscript>
