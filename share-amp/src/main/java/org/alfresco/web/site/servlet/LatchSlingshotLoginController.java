@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.alfresco.web.site.SlingshotUserFactory;
-import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.extensions.surf.FrameworkUtil;
 import org.springframework.extensions.surf.UserFactory;
 import org.springframework.extensions.surf.exception.ConnectorServiceException;
+import org.springframework.extensions.surf.mvc.LoginController;
 import org.springframework.extensions.surf.site.AuthenticationUtil;
 import org.springframework.extensions.surf.support.AlfrescoUserFactory;
 import org.springframework.extensions.surf.uri.UriUtils;
@@ -36,7 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @mail iarroyoescobar@gmail.com
  *
  */
-public class LatchSlingshotLoginController extends SlingshotLoginController{
+public class LatchSlingshotLoginController extends LoginController{
 	
 
 	private ConnectorService connectorService;
@@ -49,6 +49,8 @@ public class LatchSlingshotLoginController extends SlingshotLoginController{
 	private static final String LATCH_REQUEST_REFERER="/api/latch/referer/request";
 	
 	private static final String MIMETYPE_APPLICATION_JSON = "application/json";
+	
+	public static String SESSION_ATTRIBUTE_KEY_USER_GROUPS = "_alf_USER_GROUPS";
 	
 	
 	
@@ -74,7 +76,7 @@ public class LatchSlingshotLoginController extends SlingshotLoginController{
 	    		username=(String) request.getSession().getAttribute("username");
 	    		String token= (String) request.getParameter("token");
 	    		
-	    		if(StringUtils.isNotBlank(username) && StringUtils.isNotBlank(token)){
+	    		if(username!=null && !username.trim().isEmpty() && token!=null && !token.trim().isEmpty()){
 		    		saveTemporalLatchToken(request.getSession(), username, token);
 		    		
 		    		Connector connector=connectorService.getConnector(SlingshotUserFactory.ALFRESCO_ENDPOINT_ID);
@@ -82,7 +84,7 @@ public class LatchSlingshotLoginController extends SlingshotLoginController{
 		    		//the user token and latch token are equals
 		    		String ticket= getUserTicket(connector, username);
 		    		
-		    		if(StringUtils.isNotBlank(ticket)){
+		    		if(ticket!=null && !ticket.trim().isEmpty()){
 		    			authenticated=Boolean.TRUE;
 		    			//inject alfTicket
 		    			connector.getConnectorSession().setParameter(AlfrescoAuthenticator.CS_PARAM_ALF_TICKET, ticket);
@@ -253,7 +255,7 @@ public class LatchSlingshotLoginController extends SlingshotLoginController{
 		
 		String username= request.getParameter("username");
 		
-		if(StringUtils.isNotBlank(username)){
+		if(username!=null && !username.trim().isEmpty()){
 			request.getSession().setAttribute("username", username);
 		}else{
 			username= (String) request.getSession().getAttribute("username");
@@ -313,8 +315,8 @@ public class LatchSlingshotLoginController extends SlingshotLoginController{
 	 */
 	private boolean hasLatch2FA(HttpServletRequest request) {
 		String referer=request.getHeader("referer");
-		Boolean res=StringUtils.isNotBlank(referer) && referer.matches("(.*)/page/latch-twofa\\?username=(.*)");
-		res=res && StringUtils.isNotEmpty(request.getParameter("token"));
+		Boolean res=referer!=null && !referer.isEmpty() && referer.matches("(.*)/page/latch-twofa\\?username=(.*)");
+		res=res && request!=null && !request.getParameter("token").isEmpty();
 		return res;
 	}
 	
