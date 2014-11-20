@@ -1,9 +1,9 @@
 #LATCH INSTALLATION GUIDE FOR ALFRESCO
 
-This is a beta latch plugin that implements two functionalities for Alfresco Share:
+This is a beta latch plugin that implements two functionalities:
 
-* Latch
-* Two Factor Authentication
+* Latch (Alfresco Explorer and Alfresco Share)
+* Two Factor Authentication (Alfresco Share)
 
 
 ##PREREQUISITES 
@@ -103,9 +103,9 @@ The user needs the Latch application installed on the phone, and follow these st
 
 - For more information about how to use Latch and testing more free features, please refer to the user guide in Spanish and English:
 
-	1. [English version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_EN.pdf)
-	2. [Spanish version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_ES.pdf)
-	
+  1. [English version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_EN.pdf)
+  2. [Spanish version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_ES.pdf)
+  
 ##ADITIONAL INFORMATION
 The latch website use a certified issued by **StartCom Ltd.**. This certificate is not included in the java keystore bundle by default, so we have two options to validate the certified correctly. The second option is used by default.
 
@@ -118,4 +118,3 @@ The latch website use a certified issued by **StartCom Ltd.**. This certificate 
 ##DOWNLOADS
 * [Latch Alfresco Repository AMP](https://mega.co.nz/#!cM5TmapJ!PNEgMclMIxLNXGUCcfsYc431d-I1Fh4-xjjIg_70r0A)
 * [Latch Alfresco Share AMP](https://mega.co.nz/#!AUp0DJ4K!TkAWLoXBf7_t0TaFMBWGllcFoWrfZr9EA6c9KYccHmo) 
-
