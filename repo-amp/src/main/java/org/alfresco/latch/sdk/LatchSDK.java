@@ -22,6 +22,7 @@ import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 
 import com.elevenpaths.latch.Latch;
+import com.elevenpaths.latch.LatchResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -94,6 +95,10 @@ public class LatchSDK extends Latch {
 		}
 
 		return responseJSON;
+	}
+	
+	public LatchResponse statusNOOtp(String accountId) {
+		return HTTP_GET_proxy(new StringBuilder(API_CHECK_STATUS_URL).append("/").append(accountId).append("/nootp").toString());
 	}
 
 

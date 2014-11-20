@@ -29,6 +29,8 @@ public interface LatchService {
 	
 	public LatchResponse getLatchStatus(String accountID);
 	
+	public LatchResponse getLatchStatusNOOtp(String accountID);
+	
 	public void pairAccount(String userName, String token) throws LatchErrorException;
 	public void unpairAccount(String userName) throws LatchErrorException;
 	

@@ -63,6 +63,22 @@ public class LatchServiceImpl implements LatchService {
 	}
 	
 	/* (non-Javadoc)
+	 * @see org.alfresco.latch.service.LatchService#getLatchStatusNOOtp(java.lang.String)
+	 */
+	@Override
+	public LatchResponse getLatchStatusNOOtp(String accountID) {
+		LatchResponse latchResponse= new LatchResponse();
+		
+		if(latchConfig.isAvailable()){
+			
+			LatchSDK latch= new LatchSDK(latchConfig); 
+			latchResponse= latch.statusNOOtp(accountID);
+		}
+		
+		return latchResponse;
+	}
+	
+	/* (non-Javadoc)
 	 * @see org.alfresco.latch.service.LatchService#pairAccount(java.lang.String, java.lang.String)
 	 */
 	@Override

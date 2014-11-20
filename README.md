@@ -30,7 +30,6 @@ This proyect is based on Alfresco Maven SDK so to build the project you only nee
 * After the package we will have the next output:
     * /alfresco-latch/repo-amp/target/latch-repo.amp, which is the amp module for alfresco repository
     * /alfresco-latch/share-amp/target/latch-share.amp, which is the amp module for alfresco share
-    
 
 
 ###WARNING
@@ -47,8 +46,10 @@ This guide try to explain how install the latch customizations in Alfresco.
 
 **2.** Place the amps in their respective directories
 
+
    * Latch Alfresco Repository AMP (latch-repo.amp) ---> &lt;alfresco_root_directory&gt;/amps 
    * Latch Alfresco Share AMP (latch-share.amp) ---> &lt;alfresco_root_directory&gt;/amps_share
+
 
 **3.** There are two options to install the amps:
 
@@ -59,6 +60,7 @@ And remove the existing previous deployed wars.
     
 **3.2** The jar **alfresco-mmt.jar** 
          
+
 **Example**: java -jar  &lt;alfresco_root_directory&gt;/bin/alfresco-mmt.jar install &lt;path_amp&gt; &lt;path_war&gt; -verbose
    
 - Install the amp to Alfresco:  
@@ -100,8 +102,9 @@ The user needs the Latch application installed on the phone, and follow these st
 - Further information on de Latch´s API can be found here: [https://latch.elevenpaths.com/www/developers/doc_api](https://latch.elevenpaths.com/www/developers/doc_api)
 
 - For more information about how to use Latch and testing more free features, please refer to the user guide in Spanish and English:
-    1. [English version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_EN.pdf)
-	1. [Spanish version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_ES.pdf)
+
+	1. [English version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_EN.pdf)
+	2. [Spanish version](https://latch.elevenpaths.com/www/public/documents/howToUseLatchNevele_ES.pdf)
 	
 ##ADITIONAL INFORMATION
 The latch website use a certified issued by **StartCom Ltd.**. This certificate is not included in the java keystore bundle by default, so we have two options to validate the certified correctly. The second option is used by default.
@@ -113,5 +116,6 @@ The latch website use a certified issued by **StartCom Ltd.**. This certificate 
 
 
 ##DOWNLOADS
-* [Latch Alfresco Repository AMP](https://mega.co.nz/#!JBJWiBYJ!Na1ej9LFUm-g-3BUZ5XReKSe_3V9GdHCASeoH3zkSw8)
-* [Latch Alfresco Share AMP](https://mega.co.nz/#!BAZCjA7Z!vs8omgD4LMH9MSlgM8Xu-593bZoG0rkT8ogHOKJri3Q) 
+* [Latch Alfresco Repository AMP](https://mega.co.nz/#!cM5TmapJ!PNEgMclMIxLNXGUCcfsYc431d-I1Fh4-xjjIg_70r0A)
+* [Latch Alfresco Share AMP](https://mega.co.nz/#!AUp0DJ4K!TkAWLoXBf7_t0TaFMBWGllcFoWrfZr9EA6c9KYccHmo) 
+
