@@ -1,14 +1,8 @@
-/**
- * 
- */
 package org.alfresco.latch.webscript;
 
 import java.io.IOException;
 
-import org.alfresco.latch.config.TwoFAConfig;
 import org.alfresco.latch.service.LatchService;
-import org.alfresco.repo.cache.SimpleCache;
-import org.alfresco.repo.transfer.RepoSecondaryManifestProcessorImpl;
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;

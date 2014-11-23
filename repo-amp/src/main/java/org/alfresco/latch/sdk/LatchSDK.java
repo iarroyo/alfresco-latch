@@ -97,6 +97,12 @@ public class LatchSDK extends Latch {
 		return responseJSON;
 	}
 	
+	/**
+	 * Get latch status skipping the second factor authentication
+	 * 
+	 * @param accountId
+	 * @return
+	 */
 	public LatchResponse statusNOOtp(String accountId) {
 		return HTTP_GET_proxy(new StringBuilder(API_CHECK_STATUS_URL).append("/").append(accountId).append("/nootp").toString());
 	}

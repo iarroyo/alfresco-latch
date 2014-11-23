@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 public class LatchInterceptor implements MethodInterceptor {
 
 	private LatchService latchService;
+	private boolean extremeLatchAccess;
 	private static final String AUTHENTICATED_METHOD = "authenticate";
 
 	@Override
@@ -57,6 +58,8 @@ public class LatchInterceptor implements MethodInterceptor {
 	}
 
 	/**
+	 * Process the latch response checking if the latch is open or close.
+	 * 
 	 * @param latchReponse
 	 */
 	private void processReponse(LatchResponse latchResponse, String userName) {
@@ -66,12 +69,18 @@ public class LatchInterceptor implements MethodInterceptor {
 		
 		// Not block user account if any error happen in the latch server
 		if(data!=null || error!=null){
-			// Error 201: Account not paired
-			// https://latch.elevenpaths.com/www/developers/doc_api
-			//102 = Invalid application signature  >> Bad secret key or application id or latch app removed
-			if(error!=null && (error.getCode()==HttpStatus.SC_CREATED || error.getCode()==HttpStatus.SC_PROCESSING)){
-				// If the account is externally unpaired
-				latchService.externallyUnpairedAccount(userName);
+			if(error!=null){
+				
+				// Error 201: Account not paired
+				// https://latch.elevenpaths.com/www/developers/doc_api
+				//102 = Invalid application signature  >> Bad secret key or application id or latch app removed
+				if(error.getCode()==HttpStatus.SC_CREATED || error.getCode()==HttpStatus.SC_PROCESSING){
+					// If the account is externally unpaired
+					latchService.externallyUnpairedAccount(userName);
+				}else if((error.getCode()/100)==5 && extremeLatchAccess){
+					throw new AuthenticationDisallowedException("Extreme latch access enabled. Latch Service is not responding.");
+				}
+				
 			}else if(data!=null && !latchService.isLatchON(latchResponse)){
 				//AuthenticationCredentialsNotFoundException
 				throw new AuthenticationDisallowedException("Latch has blocked the authenticaton");
@@ -86,6 +95,10 @@ public class LatchInterceptor implements MethodInterceptor {
 	 */
 	public void setLatchService(LatchService latchService) {
 		this.latchService = latchService;
+	}
+	
+	public void setExtremeLatchAccess(boolean access){
+		this.extremeLatchAccess=access;
 	}
 
 }

@@ -107,6 +107,8 @@ public class CustomLoginPost extends LoginPost{
 	}
 
 	/**
+	 * Process the latch response checking the second authentication factor.
+	 * 
 	 * @param latchReponse
 	 * @param userName
 	 */

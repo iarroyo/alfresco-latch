@@ -135,8 +135,6 @@ public class LatchDAOImpl implements LatchDAO {
 		if(nodeService.hasAspect(userRef, LatchModel.ASPECT_LATCH)){
 			
 			String accountID= (String) nodeService.getProperty(userRef, LatchModel.PROP_ACCOUNT_ID);
-			String appID= latchConfig.getAppID();
-			String secret= latchConfig.getSecret();
 			
 			if(latchConfig.isAvailable()){
 				Latch latch= new LatchSDK(latchConfig);
@@ -163,6 +161,11 @@ public class LatchDAOImpl implements LatchDAO {
 		unpairData(userRef);
 	}
 	
+	/**
+	 * Remove the latch account from the user.
+	 * 
+	 * @param userRef
+	 */
 	private void unpairData(NodeRef userRef){
 		nodeService.removeAspect(userRef, LatchModel.ASPECT_LATCH);
 	}

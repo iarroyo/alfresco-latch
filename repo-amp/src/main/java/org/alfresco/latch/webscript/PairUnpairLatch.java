@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.alfresco.latch.webscript;
 
 import java.io.IOException;
