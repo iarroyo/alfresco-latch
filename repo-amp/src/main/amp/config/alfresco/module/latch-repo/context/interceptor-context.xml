@@ -20,6 +20,9 @@
 <beans>
     
     <bean id="LatchInterceptor" class="org.alfresco.latch.interceptor.LatchInterceptor">
+    	<property name="extremeLatchAccess">
+    		<value>${latch.denniedaccess.service.notavailable}</value>
+    	</property>
     	<property name="latchService" ref="latchService" />
     </bean>
     

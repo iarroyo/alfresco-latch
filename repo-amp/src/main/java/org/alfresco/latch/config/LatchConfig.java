@@ -13,6 +13,8 @@ import org.springframework.core.io.Resource;
  * @author iarroyo
  *
  * @mail iarroyoescobar@gmail.com
+ * 
+ * Object representing the latch configuration.
  *
  */
 public class LatchConfig {
@@ -32,6 +34,8 @@ public class LatchConfig {
 	private AttributeService attributeService;
 
 	/**
+	 * Check if latch is enabled and it is configured.
+	 * 
 	 * @return the isAvailable
 	 */
 	public Boolean isAvailable() {
@@ -41,6 +45,11 @@ public class LatchConfig {
 		return available;
 	}
 
+	/**
+	 * Load the latch configuration from database.
+	 * 
+	 * @throws JSONException
+	 */
 	public void init() throws JSONException {
 
 		if (attributeService.exists(LATCH, SETTINGS)) {

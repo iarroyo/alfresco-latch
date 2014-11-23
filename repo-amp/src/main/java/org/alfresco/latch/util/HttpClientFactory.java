@@ -9,10 +9,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
-
 import javax.net.ssl.SSLContext;
-
-import org.alfresco.latch.exception.LatchException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.scheme.Scheme;

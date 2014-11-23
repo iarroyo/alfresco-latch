@@ -18,7 +18,7 @@
 			the -Pamp-to-war switch . | Allowed values: alfresco | share. Defaults to 
 			a repository AMP, but could point to your custom corporate Alfresco WAR -->
 		<alfresco.client.war>alfresco</alfresco.client.war>
-		<com.elevenpaths.latch.version>0.6.7</com.elevenpaths.latch.version>
+		<com.elevenpaths.latch.version>0.9.0</com.elevenpaths.latch.version>
 	</properties>
 
 

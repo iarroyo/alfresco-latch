@@ -9,6 +9,8 @@ import java.util.Date;
  * @author iarroyo
  *
  * @mail iarroyoescobar@gmail.com
+ * 
+ * Object representing the Second Factor Authentication configuration.
  *
  */
 public class TwoFAConfig {

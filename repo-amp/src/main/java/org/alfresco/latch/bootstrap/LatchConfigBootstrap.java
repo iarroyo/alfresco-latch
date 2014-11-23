@@ -19,13 +19,15 @@ import org.springframework.extensions.surf.util.AbstractLifecycleBean;
  * @author iarroyo
  *
  * @mail iarroyoescobar@gmail.com
+ * 
+ * Initialize the latch configuration. The latch configuration is
+ * persisted in the database.
  *
  */
 public class LatchConfigBootstrap extends AbstractLifecycleBean {
 
 	private TransactionService transactionService;
 	private LatchConfig latchConfig;
-	/* The thread executer */
 	private ThreadPoolExecutor threadExecuter;
 	
 	private static final Log logger = LogFactory.getLog(LatchConfigBootstrap.class);
@@ -52,7 +54,6 @@ public class LatchConfigBootstrap extends AbstractLifecycleBean {
 		 */
 		@Override
 		public void run() {
-			  // run as System on bootstrap
             AuthenticationUtil.runAs(new RunAsWork<Object>()
             {
                 public Object doWork()
