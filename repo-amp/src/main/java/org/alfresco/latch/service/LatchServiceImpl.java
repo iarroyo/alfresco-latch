@@ -7,13 +7,13 @@ import org.alfresco.latch.config.LatchConfig;
 import org.alfresco.latch.config.TwoFAConfig;
 import org.alfresco.latch.config.TwoFAConfig.REFERER_REQ;
 import org.alfresco.latch.dao.LatchDAO;
+import org.alfresco.latch.exception.LatchException;
 import org.alfresco.latch.sdk.LatchSDK;
 import org.alfresco.repo.cache.SimpleCache;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.apache.commons.lang.StringUtils;
 
 import com.elevenpaths.latch.Latch;
-import com.elevenpaths.latch.LatchErrorException;
 import com.elevenpaths.latch.LatchResponse;
 import com.google.gson.JsonObject;
 
@@ -82,7 +82,7 @@ public class LatchServiceImpl implements LatchService {
 	 * @see org.alfresco.latch.service.LatchService#pairAccount(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void pairAccount(String userName, String token) throws LatchErrorException {
+	public void pairAccount(String userName, String token) throws LatchException {
 
 		latchDAO.pairAccount(latchConfig, userName, token);
 	}
@@ -91,7 +91,7 @@ public class LatchServiceImpl implements LatchService {
 	 * @see org.alfresco.latch.service.LatchService#unpairAccount(java.lang.String)
 	 */
 	@Override
-	public void unpairAccount(String userName) throws LatchErrorException {
+	public void unpairAccount(String userName) throws LatchException {
 
 		latchDAO.unpairAccount(latchConfig, userName);
 		

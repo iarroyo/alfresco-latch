@@ -14,7 +14,6 @@ import org.alfresco.util.PropertyMap;
 import org.apache.commons.lang.StringUtils;
 
 import com.elevenpaths.latch.Latch;
-import com.elevenpaths.latch.LatchErrorException;
 import com.elevenpaths.latch.LatchResponse;
 import com.google.gson.JsonObject;
 import com.elevenpaths.latch.Error;
@@ -63,7 +62,7 @@ public class LatchDAOImpl implements LatchDAO {
 	 */
 	@Override
 	public void pairAccount(LatchConfig latchConfig, String userName,
-			String token) throws LatchErrorException {
+			String token) throws LatchException {
 
 		NodeRef userRef = personService.getPerson(userName);
 
@@ -81,7 +80,7 @@ public class LatchDAOImpl implements LatchDAO {
 	 * @throws LatchErrorException 
 	 */
 	private void performPairing(LatchConfig latchConfig, String token,
-			NodeRef userRef) throws LatchErrorException {
+			NodeRef userRef) throws LatchException {
 
 		if (latchConfig.isAvailable()) {
 			Latch latch = new LatchSDK(latchConfig);
@@ -96,7 +95,7 @@ public class LatchDAOImpl implements LatchDAO {
 	 * @param userName
 	 * @throws LatchErrorException 
 	 */
-	private void processPairingResponse(LatchResponse latchResponse, NodeRef userRef) throws LatchErrorException {
+	private void processPairingResponse(LatchResponse latchResponse, NodeRef userRef) throws LatchException {
 
 		JsonObject data = latchResponse.getData();
 		Error error =latchResponse.getError();
@@ -104,7 +103,7 @@ public class LatchDAOImpl implements LatchDAO {
 		if (error!=null){
 			//TODO set better error description
 			//102 = Invalid application signature  >> Settings error: Bad secret key or application id
-			throw new LatchErrorException(error);
+			throw new LatchException(error.getMessage());
 		}else if(data != null && data.has(ACCOUNT_ID)) {
 			
 			String accountID = data.get(ACCOUNT_ID).getAsString();
@@ -129,7 +128,7 @@ public class LatchDAOImpl implements LatchDAO {
 	 * @see org.alfresco.latch.dao.LatchDAO#unpairAccount(java.lang.String)
 	 */
 	@Override
-	public void unpairAccount(LatchConfig latchConfig, String userName) throws LatchErrorException {
+	public void unpairAccount(LatchConfig latchConfig, String userName) throws LatchException {
 
 		NodeRef userRef = personService.getPerson(userName);
 		if(nodeService.hasAspect(userRef, LatchModel.ASPECT_LATCH)){
@@ -143,7 +142,7 @@ public class LatchDAOImpl implements LatchDAO {
 				if(error!=null){
 					//TODO set better error description
 					//102 = Invalid application signature  >> Settings error: Bad secret key or application id
-					throw new LatchErrorException(error);
+					throw new LatchException(error.getMessage());
 				}else{
 					unpairData(userRef);
 				}
