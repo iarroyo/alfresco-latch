@@ -10,7 +10,8 @@
 function main()
 {
 	
-	var appID, secret, enabled;
+	var appID, secret;
+	var enabled=false;
 	var success=false;
 	var configured=false;
 	
