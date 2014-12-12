@@ -4,9 +4,9 @@
 package org.alfresco.latch.dao;
 
 import org.alfresco.latch.config.LatchConfig;
+import org.alfresco.latch.exception.LatchException;
 import org.alfresco.service.cmr.repository.NodeRef;
 
-import com.elevenpaths.latch.LatchErrorException;
 
 /**
  * @author iarroyo
@@ -42,7 +42,7 @@ public interface LatchDAO {
 	 * @param token
 	 * @throws LatchErrorException
 	 */
-	public void pairAccount(LatchConfig latchConfig, String userName, String token) throws LatchErrorException;
+	public void pairAccount(LatchConfig latchConfig, String userName, String token) throws LatchException;
 	
 	/**
 	 * Unpair the user account with latch.
@@ -51,7 +51,7 @@ public interface LatchDAO {
 	 * @param userName
 	 * @throws LatchErrorException
 	 */
-	public void unpairAccount(LatchConfig latchConfig, String userName) throws LatchErrorException;
+	public void unpairAccount(LatchConfig latchConfig, String userName) throws LatchException;
 	
 	/**
 	 * Unpair the user account when the account has been unpaired externally.

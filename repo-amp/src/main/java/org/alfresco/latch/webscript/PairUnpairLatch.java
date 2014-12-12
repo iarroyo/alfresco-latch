@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.Map;
 
+import org.alfresco.latch.exception.LatchException;
 import org.alfresco.latch.service.LatchService;
 import org.json.JSONObject;
 import org.springframework.extensions.surf.util.Content;
@@ -13,7 +14,6 @@ import org.springframework.extensions.webscripts.WebScriptException;
 import org.springframework.extensions.webscripts.WebScriptRequest;
 import org.springframework.extensions.webscripts.WebScriptResponse;
 
-import com.elevenpaths.latch.LatchErrorException;
 
 /**
  * @author iarroyo
@@ -90,8 +90,8 @@ public class PairUnpairLatch extends AbstractWebScript {
 			
 			res.getWriter().write(response.toString());
 
-		} catch (LatchErrorException latchException){
-			throw new WebScriptException(latchException.getError().getMessage());
+		} catch (LatchException latchException){
+			throw new WebScriptException(latchException.getMessage());
 		} catch (Exception genericException) {
 			throw new WebScriptException(genericException.getMessage(), genericException);
 		}

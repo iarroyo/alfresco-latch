@@ -1,9 +1,9 @@
 package org.alfresco.latch.service;
 
 import org.alfresco.latch.config.LatchConfig;
+import org.alfresco.latch.exception.LatchException;
 import org.alfresco.service.cmr.repository.NodeRef;
 
-import com.elevenpaths.latch.LatchErrorException;
 import com.elevenpaths.latch.LatchResponse;
 import com.google.gson.JsonObject;
 
@@ -67,14 +67,14 @@ public interface LatchService {
 	 * @param token
 	 * @throws LatchErrorException
 	 */
-	public void pairAccount(String userName, String token) throws LatchErrorException;
+	public void pairAccount(String userName, String token) throws LatchException;
 	
 	/**
 	 * Unpair the user account with the latch service
 	 * @param userName
 	 * @throws LatchErrorException
 	 */
-	public void unpairAccount(String userName) throws LatchErrorException;
+	public void unpairAccount(String userName) throws LatchException;
 	
 	/**
 	 * 
