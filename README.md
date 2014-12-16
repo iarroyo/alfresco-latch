@@ -116,5 +116,6 @@ The latch website use a certified issued by **StartCom Ltd.**. This certificate 
 
 
 ##DOWNLOADS
-* [Latch Alfresco Repository AMP](https://mega.co.nz/#!cM5TmapJ!PNEgMclMIxLNXGUCcfsYc431d-I1Fh4-xjjIg_70r0A)
-* [Latch Alfresco Share AMP](https://mega.co.nz/#!AUp0DJ4K!TkAWLoXBf7_t0TaFMBWGllcFoWrfZr9EA6c9KYccHmo) 
+* [Latch Alfresco Repository AMP](https://mega.co.nz/#!ZdQVGbiZ!KiGddNhAuRct186xuI0lnc72sI0xExWmN8vBQjmmjD8)
+* [Latch Alfresco Share AMP](https://mega.co.nz/#!8UxCiDTI!bLEbaVNzB8kaIqVJu_QUq1ss-IEvwtAnPH1Vs4VgKVM) 
+
