@@ -43,7 +43,7 @@
                <div class="row">
                   <div class="label">${msg("label.active")}:</div>
                   <div>
-				  	<input type="checkbox" <#if isConfigured>class="disabled" disabled</#if> id="${el}-enabled" name="enabled" title="${msg("label.enabled")}" <#if settings.enabled??>checked="${settings.enabled?string}"</#if> />
+				  	<input type="checkbox" <#if isConfigured>class="disabled" disabled</#if> id="${el}-enabled" name="enabled" title="${msg("label.enabled")}" <#if settings.enabled?? && settings.enabled>checked="${settings.enabled?string}"</#if> />
                   </div>
                </div>
                <div class="row">
